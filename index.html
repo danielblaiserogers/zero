@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chromebook Web App Starter</title>
+    <!-- Use Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a cleaner look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Main application card with a modern, clean design -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full text-center">
+        <!-- Title and description -->
+        <h1 class="text-4xl font-extrabold text-gray-800 mb-2 tracking-tight">
+            Hello from your Chromebook!
+        </h1>
+        <p class="text-lg text-gray-500 mb-6">
+            This is a simple web app running in your Linux environment.
+        </p>
+
+        <!-- Dynamic content area -->
+        <div id="content-area" class="bg-indigo-50 p-6 rounded-xl border border-indigo-200 mb-6 transition-all duration-300">
+            <p class="text-xl text-indigo-700 font-semibold" id="dynamic-text">
+                Click the button to change this message.
+            </p>
+        </div>
+
+        <!-- Interactive button -->
+        <button id="change-btn" class="w-full px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Change Message
+        </button>
+    </div>
+
+    <script>
+        // Get references to the HTML elements
+        const changeBtn = document.getElementById('change-btn');
+        const dynamicText = document.getElementById('dynamic-text');
+
+        // Define a list of messages to cycle through
+        const messages = [
+            "This is your first step into web development.",
+            "Your app is running perfectly!",
+            "You can use this terminal for all your coding needs.",
+            "Linux and ChromeOS: a powerful combination.",
+            "Happy coding!"
+        ];
+
+        let messageIndex = 0;
+
+        // Add a click event listener to the button
+        changeBtn.addEventListener('click', () => {
+            // Update the text with the next message in the list
+            dynamicText.textContent = messages[messageIndex];
+            
+            // Cycle to the next message, looping back to the start
+            messageIndex = (messageIndex + 1) % messages.length;
+        });
+
+    </script>
+
+</body>
+</html>
