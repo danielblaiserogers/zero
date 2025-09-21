@@ -33,7 +33,7 @@ def add_customer():
         print(f"Added new customer: {new_customer}")
         
         # Return a JSON response to the front-end.
-        return jsonify({'success': True, 'message': 'Customer added successfully!'})
+        return jsonify({'success': True, 'message': customer_name+' added successfully!'})
     else:
         # Handle the case where data is missing.
         return jsonify({'success': False, 'message': 'Please provide both name and email.'}), 400
